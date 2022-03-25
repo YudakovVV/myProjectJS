@@ -1,21 +1,12 @@
-let title = "lesson02";
-let screens = "Простые, Сложные, Интерактивные";
-let screenPrice = 200;
-let rollback = 20;
-let fullPrice = 30000;
-let adaptive = true;
-let lowerCase = screens.toLowerCase();
-let arr = lowerCase.split(",");
-let persInter = fullPrice * (rollback / 100);
-
-console.log(typeof title);
-console.log(typeof fullPrice);
-console.log(typeof adaptive);
-console.log(typeof adaptive);
-console.log(screens.length);
-console.log(
-  "Стоимость разработки сайта " + fullPrice + " рублей/ долларов/гривен/юани"
-);
-console.log(arr);
-console.log(persInter);
+let num = 266219;
+let result = 1;
+let arr = num.toString().split('');
+for(let i = 0; i < arr.length; i++){
+  result = result * arr[i];
+}
+console.log(result);
+let pow = result ** 3;
+console.log(pow);
+let arrPow = num.toString().split('');
+console.log(arrPow[0] + " " + arrPow[1]);
 
