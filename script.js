@@ -7,6 +7,6 @@ for(let i = 0; i < arr.length; i++){
 console.log(result);
 let pow = result ** 3;
 console.log(pow);
-let arrPow = num.toString().split('');
+let arrPow = pow.toString().split('');
 console.log(arrPow[0] + " " + arrPow[1]);
 
