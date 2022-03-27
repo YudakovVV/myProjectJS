@@ -5,7 +5,7 @@ let rollback = 20;
 let fullPrice = 30000;
 let adaptive = true;
 let lowerCase = screens.toLowerCase();
-let arr = lowerCase.split(",");
+let arr = lowerCase.split(", ");
 let persInter = fullPrice * (rollback / 100);
 
 console.log(typeof title);
