@@ -64,32 +64,3 @@ else if (fullPrice<= 15000 && fullPrice >= 0){
   console.log("Скидка не предусмотрена%");
 }
 else console.log("Что то пошло не так");
-
-
-// //////////////////////////////////////////////////////////////
-
-// let num = 266219;
-// function digitsMultip(num) {
-//   let result = 1;
-//   while (num > 0) {
-//     if (num % 10) {
-//       result *= num % 10;
-//       num = Math.floor(num / 10);
-//     }
-//   }
-//   return result;
-// }
-// console.log(digitsMultip(num));
-////////////////////////////////////////////
-
-// let answer = confirm("Тебе есть 18 лет?"); //вывод модального окна на экран с выбором действия
-// console.log(answer);
-// let answer2 = prompt("Сколько тебе лет?", "18 лет"); // вывод модального окна со строкой ввода
-// console.log(answer2);
-
-///////////////////////////
-// let str = prompt("Сколько тебе лет?");
-// let result = str + 10;
-// console.log(parseInt(str)); //перевод в целоцисл.
-// console.log(parseFloat(str)); //перевод в числ с плав точкой.
-// console.log(result);
