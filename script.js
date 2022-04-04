@@ -1,17 +1,42 @@
 "use strict";
 
-let arr = ["12", "450", "120", "235", "789", "123456", "2852"];
-for (let i = 0; i < 7; i++) {
-  if (arr[i].startsWith("2") || arr[i].startsWith("4")) {
-    console.log(arr[i]);
-  }
-}
 
-console.log("");
+function game() {
+  let min = 1;
+  let max = 100;
+  let attempt = 10;
+  let result;
+  let num = Math.floor(Math.random() * (max - min)) + min;
+  console.log(num);
+  function run() {
+    let userNum = prompt("Угадай число от 1 до 100");
+    if (attempt < 1) {
+      alert("Попытки кончились! Игра окончена");
+    } else if (isNaN(userNum)) {
+      alert("Введите число!");
+      run();
+    }
+    if (userNum === null) {
+      alert("Игра окончена, до свидания!");
+    }
 
-nextPrime: for (let i = 2; i <= 100; i++) {
-  for (let j = 2; j < i; j++) {
-    if (i % j == 0) continue nextPrime;
+    if (parseInt(userNum) > num) {
+      attempt--;
+      alert("Загаданное число меньше, осталось попыток " + attempt);
+      run();
+    } else if (parseInt(userNum) < num) {
+      attempt--;
+      alert("Загаданное число больше, осталось попыток " + attempt);
+      run();
+    } else if (parseInt(userNum) === num) {
+      resalt = confirm("Поздравляю, Вы угадали!!! Хотели бы сыграть еще?");
+      if(resalt === true) game();
+      else alert("Игра окончена, до свидания!");
+          
+    }
   }
-  console.log(i + " - Делители этого числа: 1 и " + i);
+  run();
 }
+game();
+
+
