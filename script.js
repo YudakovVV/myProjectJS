@@ -1,59 +1,33 @@
 "use strict";
 
-const time = function () {
-  let date = new Date();
-  let now = new Date().toLocaleString("ru", {
-    weekday: "long",
-    month: "long",
-    day: "numeric",
-  });
-  function num_word(value, words) {
-    value = Math.abs(value) % 100;
-    var num = value % 10;
-    if (value > 10 && value < 20) return words[2];
-    if (num > 1 && num < 5) return words[1];
-    if (num == 1) return words[0];
-    return words[2];
-  }
-  let dateNow =
-    "Сегодня " +
-    now +
-    " " +
-    date.getFullYear() +
-    " года, " +
-    date.getHours() +
-    num_word(date.getHours(), [" час ", " часа ", " часов "]) +
-    date.getMinutes() +
-    " минут " +
-    date.getSeconds() +
-    " секунд";
+const books = document.querySelectorAll(".book");
+const li = document.createElement("li");
+const body = document.querySelector("body");
+let adv = document.querySelector(".adv");
 
-  console.log(dateNow);
-};
-time();
+books[1].after(books[0]);
+books[4].after(books[3]);
+books[5].after(books[2]);
 
-const bTime = function () {
-  let date = new Date();
-  function getZero(num) {
-    if (num > 0 && num < 10) {
-      return "0" + num;
-    } else {
-      return num;
-    }
-  }
+body.setAttribute("style", "background-image: url(./image/slide.jpg)");
 
-  console.log(
-    getZero(date.getDate()) +
-      "." +
-      getZero(date.getMonth() + 1) +
-      "." +
-      date.getFullYear() +
-      " - " +
-      date.getHours() +
-      ":" +
-      date.getMinutes() +
-      ":" +
-      date.getSeconds()
-  );
-};
-bTime();
+let bookA = books[4].getElementsByTagName("a");
+bookA[0].innerHTML = "Книга 3. this и Прототипы Объектов";
+
+adv.parentNode.removeChild(adv);
+let bookLi = books[0].getElementsByTagName("li");
+bookLi[9].after(bookLi[2]);
+bookLi[3].before(bookLi[7]);
+bookLi[3].before(bookLi[6]);
+// bookLi[3].after(bookLi[8]);
+
+bookLi = books[5].getElementsByTagName("li");
+console.log(bookLi);
+
+bookLi[1].after(bookLi[9]);
+bookLi[5].after(bookLi[3]);
+bookLi[8].after(bookLi[6]);
+
+bookLi = books[2].getElementsByTagName("li");
+li.innerHTML = "Глава 8: За пределами ES6";
+bookLi[9].before(li);
