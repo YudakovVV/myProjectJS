@@ -1,8 +1,8 @@
 const btn = document.getElementById("btn"); 
 btn.addEventListener("click", function () {  
-  const input = document.querySelector("input[type=text]"); // создаю переменую imput для ввода значения в поле нужного цвета
+  const input = document.querySelector("input[type=text]"); // создаю переменую imput для ввода цвета
   const squre = document.querySelector("#square"); // создаю переменнкю по поиску квадрата
-  squre.style.backgroundColor = input.value; // по нажатию на кнопку меняется цвет квадрата заданного в поле
+  squre.style.backgroundColor = input.value; // меняем цвет квадрата заданного в поле
 });
 
 const e_btn = document.querySelector("#e_btn");
