@@ -1,33 +1,127 @@
-"use strict";
+const btn = document.getElementById("btn"); 
+btn.addEventListener("click", function () {  
+  const input = document.querySelector("input[type=text]"); // создаю переменую imput для ввода значения в поле нужного цвета
+  const squre = document.querySelector("#square"); // создаю переменнкю по поиску квадрата
+  squre.style.backgroundColor = input.value; // по нажатию на кнопку меняется цвет квадрата заданного в поле
+});
 
-const books = document.querySelectorAll(".book");
-const li = document.createElement("li");
-const body = document.querySelector("body");
-let adv = document.querySelector(".adv");
+const e_btn = document.querySelector("#e_btn");
+e_btn.style = "display: none";
 
-books[1].after(books[0]);
-books[4].after(books[3]);
-books[5].after(books[2]);
+const range = document.getElementById("range");
+// вешаю на кнопку события input
+range.addEventListener("input", function () {
+  //передаю значение
+  const value = range.value;
+  const circle = document.querySelector("#circle");// создаю переменнкю по поиску круга
+  // получаю ширину и высоту
+  circle.style.width = value + "%";
+  circle.style.height = value + "%";
+  const span = document.querySelector("#range-span");
+  span.textContent = value;
+});
 
-body.setAttribute("style", "background-image: url(./image/slide.jpg)");
 
-let bookA = books[4].getElementsByTagName("a");
-bookA[0].innerHTML = "Книга 3. this и Прототипы Объектов";
+//Практика из урока
+// const btn = document.querySelector("#e_btn");
+// const circle = document.querySelector("#circle");
+// const square = document.querySelector("#square");
 
-adv.parentNode.removeChild(adv);
-let bookLi = books[0].getElementsByTagName("li");
-bookLi[9].after(bookLi[2]);
-bookLi[3].before(bookLi[7]);
-bookLi[3].before(bookLi[6]);
-// bookLi[3].after(bookLi[8]);
+// const toggle = function (event) {
+//   //перехват
+//   //   event.stopPropagation();
+//   console.log(
+//     "Событие сработало на " +
+//       event.target.id +
+//       " и перенеслось на " +
+//       event.currentTarget.id
+//   );
+//   event.target.classList.toggle("green");
+// };
 
-bookLi = books[5].getElementsByTagName("li");
-console.log(bookLi);
+// btn.addEventListener("click", toggle, true);
+// circle.addEventListener("click", toggle, true);
+// square.addEventListener("click", toggle, true);
+// const link = document.querySelector("a");
+// link.addEventListener("click", function (event) {
+//   event.preventDefault();
+//   console.log("клик по ссылке");
+// });
+// document.addEventListener("contextmenu", function (event) {
+//   //блокировка события
+//   event.preventDefault();
+//   console.log("Где меню, Лебовски?");
+// });
 
-bookLi[1].after(bookLi[9]);
-bookLi[5].after(bookLi[3]);
-bookLi[8].after(bookLi[6]);
+//вызов кнопи
+// //const btn = document.getElementById("btn");
+// const range = document.getElementById("range");
+// const span = document.getElementById("range-span");
 
-bookLi = books[2].getElementsByTagName("li");
-li.innerHTML = "Глава 8: За пределами ES6";
-bookLi[9].before(li);
+// const logger = function (event) {
+//   console.log(event.type);
+//   span.textContent = event.target.value;
+// };
+// //range.addEventListener("input", logger);
+
+// document.addEventListener("DOMContentLoaded", function () {
+//   console.log("DOM построен");
+// });
+
+// // window.onbeforeunload = function () {
+// //   return "Вы уверены что хотите уйти с данной страницы";
+// // };
+// range.addEventListener("change", logger);
+// //отображет количество введенных символов
+// text.addEventListener("input", logger);
+// //отображает количество фокусоровок курсора
+// text.addEventListener("focus", logger);
+// //отображается при потере курсора
+// text.addEventListener("blur", logger);
+// //
+// text.addEventListener("change", logger);
+
+// square.addEventListener("click", logger);
+
+// square.addEventListener("mouseenter", logger);
+// square.addEventListener("mouseleave", logger);
+//реагируют на вложенные элементы
+// square.addEventListener("mouseover", logger);
+// square.addEventListener("mouseout", logger);
+
+//let counter = 0;
+
+//const square = document.getElementById("square");
+// const logger = function () {
+//   counter++;
+//   if (counter === 3) {
+//     square.removeEventListener("click", logger);
+//   }
+//   console.log(counter);
+//   console.log("Клик по квадрату");
+// };
+
+//удаление элемента
+//square.removeEventListener("click", logger);
+
+//console.log(btn);
+//Нажатие на кнопку
+// btn.onclick = function () {
+//   alert("Клик по кнопке");
+// };
+
+// square.addEventListener("click", function () {
+//   console.log("Клик по квадрату!");
+// });
+
+// square.addEventListener("click", function () {
+//   console.log("Клик по квадрату! 2");
+// });
+// const logger1 = function () {
+//   console.log("Клик по квадрату!!!!!");
+// };
+// //Нажатие на кнопку
+// square.onclick = function () {
+//   logger();
+//   logger1();
+// };
