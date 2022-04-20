@@ -20,6 +20,7 @@ let screenElement = document.querySelectorAll(".screen");
 const appData = {
   title: "",
   screens: [],
+  screensCount: 0,
   screenPrice: 0,
   adaptive: true,
   rollback: 20,
@@ -59,7 +60,7 @@ const appData = {
 
   showResult: function () {
     priceInput.value = appData.screenPrice;
-    screensCountInput.value = appData.screens[3];
+    screensCountInput.value = appData.screensCount;
     servicePricesInput.value =
       appData.servicePricesPercent + appData.servicePricesNumber;
     fullPriceInput.value = appData.fullPrice;
@@ -77,7 +78,7 @@ const appData = {
       if (+select.value === 0) {
         return;
       }
-
+      appData.screensCount += +input.value;
       appData.screens.push({
         id: index,
         name: selectName,
