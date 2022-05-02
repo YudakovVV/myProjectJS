@@ -6,44 +6,48 @@ const DomElement = function (selector, height, width, background, fontSize) {
   this.width = width;
   this.background = background;
   this.fontSize = fontSize;
-  };
+};
 
-DomElement.prototype.Create = function(){
-	let newElemnt;
-    if (this.selector[0] === ".") {
-      newElemnt = document.createElement("div");
-      newElemnt.style.cssText =
-        "height: " +
-        this.height +
-        "; \
+DomElement.prototype.Create = function () {
+  let newElemnt;
+  if (this.selector[0] === ".") {
+    newElemnt = document.createElement("div");
+    newElemnt.classList.add(this.selector);
+    newElemnt.innerHTML = "<h1>Hello!</h1>";
+    newElemnt.style.cssText =
+      "height: " +
+      this.height +
+      "; \
                 width: " +
-        this.width +
-        "; \
+      this.width +
+      "; \
                 background: " +
-        this.background +
-        "; \
+      this.background +
+      "; \
                 font-size: " +
-        this.fontSize;
-    } else if (domElement.selector[0] === "#") {
-      let newElemnt = document.createElement("id");
-      newElemnt.style.cssText =
-        "height: " +
-        this.height +
-        "; \
+      this.fontSize;
+  } else if (this.selector[0] === "#") {
+    newElemnt = document.createElement("p");
+    let idStr = newElemnt.id;
+    newElemnt.id = this.selector;
+    newElemnt.innerHTML = "<h1>Hello!</h1>";
+    newElemnt.style.cssText =
+      "height: " +
+      this.height +
+      "; \
                   width: " +
-        this.width +
-        "; \
+      this.width +
+      "; \
                   background: " +
-        this.background +
-        "; \
+      this.background +
+      "; \
                   font-size: " +
-        this.fontSize;
-    }
-	document.body.append(newElemnt);
+      this.fontSize;
+  } else console.log("Укажите селектор");
+  document.body.append(newElemnt);
+};
 
-}
-
-let domElement = new DomElement(".block", 20, 10, "red", 2);
+let domElement = new DomElement(".best", "100px", "150px", "red", "20px");
 domElement.Create();
 console.log(domElement);
 
