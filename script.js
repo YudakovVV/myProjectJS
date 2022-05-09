@@ -1,75 +1,58 @@
-"use strict";
+'use strict'
 
-class First {
-  sayHello() {
-    console.log("Привет! Я метод родителя");
-  }
+let MyDate = new Date(),
+    MyHours = MyDate.getHours(),
+    elements = document.getElementById('time'),
+    name = elements.innerHTML;
+switch (true) {
+    case (MyHours >= 5) && (MyHours < 11): elements.innerHTML = 'Доброе утро, ' + name;
+        break;
+    case (MyHours >= 11) && (MyHours < 16): elements.innerHTML = 'Добрый день, ' + name;
+        break;
+    case (MyHours >= 16) && (MyHours <= 23): elements.innerHTML = 'Добрый вечер, ' + name;
+        break;
+    case (MyHours >= 0) && (MyHours < 5): elements.innerHTML = 'Доброй ночи, ' + name;
+        break;
+    default: elements.innerHTML = 'Здравствуйте, ' + name;
+        break;
+
 }
 
-class Second extends First {
-  sayHello() {
-    super.sayHello(); //связб между классами
-    console.log("А я наследуемый метод!");
-  }
-}
+const lang = navigator.language;
+let date = new Date();
+let day = 'Сегодня: ' + date.toLocaleString(lang, { weekday: 'long' }); // получения названия дня недели
+document.getElementById('day').innerHTML = day;
 
-const start = new First();
-const finish = new Second();
-finish.sayHello();
 
-//деструктуризация
-//пример1
-// const user = {
-//   name: "VLad",
-//   age: 29,
-//   inAuth: false,
-//   projects: {
-//     firstProject: "firstProject",
-//     secondProject: "secondProject",
-//   },
-// };
+let time = new Date()
+let hours = time.getHours();
+let minutes = time.getMinutes();
+let seconds = time.getSeconds();
+if (hours < 10) hours = "0" + hours;
+if (minutes < 10) minutes = "0" + minutes;
+if (seconds < 10) seconds = "0" + seconds;
+let current = 'Текущее время - ' + hours + ':' + minutes + ':' + seconds
+document.getElementById('current').innerHTML = current;
 
-// // const name = user.name;
-// // const age = user.age;
-// // const inAuth = user.inAuth;
 
-// const {
-//   name,
-//   age,
-//   inAuth,
-//   projects,
-//   projects: { firstProject, secondProject },
-// } = user; //через диструктуризацию
-// console.log(name);
-// console.log(age);
-// console.log(inAuth);
-// console.log(projects);
 
-//пример2
-// const names = ["Artem", "Vlad", ["Alex", "Max"]];
+let timeEnd = new Date();
+timeEnd = new Date(timeEnd.getFullYear() + 1, 0, 1);
 
-// // const art = names[0];
-// // const max = names[3];
-// // console.log(art);
 
-// const [art, vlad, [alex, max]] = names;
-// console.log(art);
-// console.log(vlad);
-// console.log(alex);
-// console.log(max);
-//Пример 3
-// const logger = ({ first, second, third }) => {
-//   console.log(second);
-// };
-// logger({ first: "I", second: "love", third: "JavaScript" });
+let today = new Date();
+today = Math.floor((timeEnd - today) / 1000);
+let tsec = today % 60;
+today = Math.floor(today / 60);
+if (tsec < 10)
+    tsec = '0' + tsec;
+let tmin = today % 60;
+today = Math.floor(today / 60);
+if (tmin < 10)
+    tmin = '0' + tmin;
+let thour = today % 24;
+today = Math.floor(today / 24);
+let timestr = 'До нового года осталось: ' + today + " дней ";
+document.getElementById('t').innerHTML = timestr;
+window.setTimeout(time, 1000);
 
-//REST and SPRED
-//параметр rest(...)
-// const sum = (...params) => {
-//   return params.reduce((sum, num) => sum + num);
-// };
-// console.log(sum(42, 25, 58, 12, 125, 5555));
-//параметр spred(совмещает 2 массива)
-// const firstAr = [1, 2, 3, 4];
-// const secondAr = [5, 6, 7, 8];
-// console.log([12,444,...firstAr,555, ...secondAr]);
