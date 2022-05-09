@@ -20,7 +20,10 @@ switch (true) {
 
 const lang = navigator.language;
 let date = new Date();
-let day = 'Сегодня: ' + date.toLocaleString(lang, { weekday: 'long' }); // получения названия дня недели
+date = date.toLocaleString(lang, { weekday: 'long' })
+
+let day = 'Сегодня: ' + date.charAt(0).toUpperCase() + date.slice(1); // получения названия дня недели
+
 document.getElementById('day').innerHTML = day;
 
 
@@ -31,6 +34,8 @@ let seconds = time.getSeconds();
 if (hours < 10) hours = "0" + hours;
 if (minutes < 10) minutes = "0" + minutes;
 if (seconds < 10) seconds = "0" + seconds;
+if(hours<12) seconds = seconds + ' AM';
+else seconds = seconds + ' PM';
 let current = 'Текущее время - ' + hours + ':' + minutes + ':' + seconds
 document.getElementById('current').innerHTML = current;
 
